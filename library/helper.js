@@ -78,7 +78,6 @@ app.inputSelect = function (select, json, data) {
     }
     $(this).on('change', function () {
       data[name] = $(this).val();
-      console.log('what is this: ', $(this), ', val: ', $(this).val());
     });
   });
 }
@@ -270,3 +269,30 @@ app.createFileUpload = function (name, forValueID, maxWidth, maxHeight) {
 
   return fileInput;
 };
+
+app.createSelectDropdown = function (name, forValueID, optionsArray) {
+  var select = $('<select></select>').attr({name: name, id: forValueID});
+  for (var i = 0; i < optionsArray.length; i++) {
+    app.createOption(null, optionsArray[i]).appendTo(select);
+  }
+  console.log('this is select: ', select);
+  return select[0];
+};
+
+app.createOption = function (parent, attrObject) {
+  var option = $('<option></option>');
+  if (parent) { option.appendTo($(parent)); }
+
+  for (var attr in attrObject) {
+    var value = attrObject[attr];
+    if (attr === 'text') {
+      option.text(value);
+    } else {
+      // value has to be a string if it is part of an attribute!!!
+      option.attr(attr, value);
+    }
+  }
+
+  return option;
+};
+
