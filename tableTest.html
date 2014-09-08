@@ -1,0 +1,143 @@
+<html>
+<head>
+  <style>
+    .header {
+      width: 100%;
+    }
+    .header .table {
+      table-layout: fixed;
+    }
+    .leftColumn {
+      width: 20%;
+      float: left;
+    }
+    .rightColumn {
+      float: left;
+      width: 80%;
+    }
+
+@media screen and (max-width: 767px) {
+  .table-responsive {
+    width: 79%;
+    margin-bottom: 15px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    border: 1px solid #ddd;
+    float: left;
+  }
+  .table-responsive > .table {
+    margin-bottom: 0;
+  }
+  .table-responsive > .table > thead > tr > th,
+  .table-responsive > .table > tbody > tr > th,
+  .table-responsive > .table > tfoot > tr > th,
+  .table-responsive > .table > thead > tr > td,
+  .table-responsive > .table > tbody > tr > td,
+  .table-responsive > .table > tfoot > tr > td {
+    white-space: nowrap;
+  }
+  .table-responsive > .table-bordered {
+    border: 0;
+  }
+  .table-responsive > .table-bordered > thead > tr > th:first-child,
+  .table-responsive > .table-bordered > tbody > tr > th:first-child,
+  .table-responsive > .table-bordered > tfoot > tr > th:first-child,
+  .table-responsive > .table-bordered > thead > tr > td:first-child,
+  .table-responsive > .table-bordered > tbody > tr > td:first-child,
+  .table-responsive > .table-bordered > tfoot > tr > td:first-child {
+    border-left: 0;
+  }
+  .table-responsive > .table-bordered > thead > tr > th:last-child,
+  .table-responsive > .table-bordered > tbody > tr > th:last-child,
+  .table-responsive > .table-bordered > tfoot > tr > th:last-child,
+  .table-responsive > .table-bordered > thead > tr > td:last-child,
+  .table-responsive > .table-bordered > tbody > tr > td:last-child,
+  .table-responsive > .table-bordered > tfoot > tr > td:last-child {
+    border-right: 0;
+  }
+  .table-responsive > .table-bordered > tbody > tr:last-child > th,
+  .table-responsive > .table-bordered > tfoot > tr:last-child > th,
+  .table-responsive > .table-bordered > tbody > tr:last-child > td,
+  .table-responsive > .table-bordered > tfoot > tr:last-child > td {
+    border-bottom: 0;
+  }
+}
+  </style>
+</head>
+<body>
+  <div class="header">
+    <table class="table">
+      <thead>
+        <tr>
+          <th> EC Section Officers </th>
+          <th> Section A</th>
+          <th> Section B</th>
+          <th> Section C</th>
+
+        </tr>
+      </thead>
+    </table>    
+  </div>
+
+  <div class="nextRow">
+
+    <div class="leftColumn">
+      <table class="table">
+        <tbody>        
+          <tr><td>President</td></tr>
+          <tr><td>Co-President</td></tr>
+          <tr><td>Treasurer and a longer title!</td></tr>
+        </tbody>      
+      </table>
+    </div>
+
+    <div class="rightColumn table-responsive">
+    <table class="table">
+      <tbody>
+        <tr>
+          <td>Gregory Lull</td>
+          <td>Linda Li</td>
+          <td>Henry David Makaveli the 4th</td>
+          <td>Gregory Lull</td>
+          <td>Linda Li</td>
+          <td>Henry David Makaveli the 4th</td>
+          <td>Gregory Lull</td>
+          <td>Linda Li</td>
+          <td>Henry David Makaveli the 4th</td>
+        </tr>
+        <tr>
+          <td>Gregory Lull</td>
+          <td>Linda Li</td>
+          <td>Henry David Makaveli the 4th</td>
+          <td>Gregory Lull</td>
+          <td>Linda Li</td>
+          <td>Henry David Makaveli the 4th</td>
+          <td>Gregory Lull</td>
+          <td>Linda Li</td>
+          <td>Henry David Makaveli the 4th</td>
+        </tr>
+        <tr>
+          <td>Gregory Lull</td>
+          <td>Linda Li</td>
+          <td>Henry David Makaveli the 4th</td>
+          <td>Gregory Lull</td>
+          <td>Linda Li</td>
+          <td>Henry David Makaveli the 4th</td>
+          <td>Gregory Lull</td>
+          <td>Linda Li</td>
+          <td>Henry David Makaveli the 4th</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</body>
+  <script src="library/jquery.js"></script>
+  <link rel="stylesheet" href="library/css/bootstrap.css"></link>
+  <link rel="stylesheet" href="library/css/bootstrap-theme.css"></link>
+  <script src="library/js/bootstrap.js"></script>
+
+  <script src="js/tableTest.js"></script>
+</html>

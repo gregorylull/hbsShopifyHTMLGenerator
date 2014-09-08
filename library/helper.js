@@ -146,9 +146,9 @@ app.createSmall = function (text, parent) {
   small.innerText = text;
 
   // parent could be a table or a fieldset
-  if (parent.nodeName.toLowerCase() === 'fieldset') {
+  if (parent && parent.nodeName.toLowerCase() === 'fieldset') {
     parent.appendChild(small);
-  } else if (parent.nodeName.toLowerCase() === 'table') {
+  } else if (parent && parent.nodeName.toLowerCase() === 'table') {
     var td = app.createTableData(small);
     var row = document.createElement('tr');
     row.appendChild(td);
@@ -229,11 +229,17 @@ app.createLabel = function (forValueID, innerText, parent) {
   }
 };
 
-app.createInput = function (type, name, forValueID) {
+app.createInput = function (type, name, forValueID, special) {
   var input = document.createElement('input');
   input.setAttribute('type', type);
   input.setAttribute('name', name);
   input.id = forValueID;
+
+  if (special) {
+    for (var attr in special) {
+      input.setAttribute(attr, special[attr]);
+    }
+  }
 
   if (type === 'checkbox') {
     input.setAttribute('value', '1');
@@ -295,4 +301,9 @@ app.createOption = function (parent, attrObject) {
 
   return option;
 };
+
+/******************************************************************************
+  SHOPIFY SPECIAL CSS
+********************************************************************************/
+
 
