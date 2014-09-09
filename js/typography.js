@@ -69,22 +69,25 @@ app.createSettingsHTML = function () {
   // select default section header font
   var sectionHeaderFamily = app.createTableRow(
       // forValueID, innerText, parent
-      app.createLabel(defaultSecBase + 'font-family', "Section header font-family, enter exactly as specificed in google (capitalize if necessary)"),
+      app.createLabel(defaultSecBase + 'fontFamily', "Section header font-family, enter exactly as specificed in google (capitalize if necessary)"),
 
       // type, name, forValueID
-      app.createInput('text', defaultSecBase + 'font-family', defaultSecBase + 'font-family')
+      app.createInput('text', defaultSecBase + 'fontFamily', defaultSecBase + 'fontFamily')
     );
   defaultHeaderTable.appendChild(sectionHeaderFamily);
 
+/*
+// changing universal header size does not seem appropriate
   // select default section header size
   var sectionHeaderSize = app.createTableRow(
     // forValueID, innerText, parent
-    app.createLabel(defaultSecBase + 'font-size', "Section header font size, enter number from 0.1 to 5 (this is a multiplier, 5 means 'increase current font size by 500%')"),
+    app.createLabel(defaultSecBase + 'font-size', "Section header font size, enter number starting from 0.1 (if no value is entered, the default is current view on the web)"),
 
     // type, name, forValueID
     app.createInput('text', defaultSecBase + 'font-size', defaultSecBase + 'font-size')
   );
   defaultHeaderTable.appendChild(sectionHeaderSize);
+*/
 
   // select default section header color
   var sectionHeaderColor = app.createTableRow(
@@ -132,22 +135,25 @@ app.createSettingsHTML = function () {
   // select default section block font
   var defaultPageFamily = app.createTableRow(
       // forValueID, innerText, parent
-      app.createLabel(defaultPageFont + 'font-family', "Page font-family, enter exactly as specificed in google (capitalize if necessary)"),
+      app.createLabel(defaultPageFont + 'fontFamily', "Page font-family, enter exactly as specificed in google (capitalize if necessary)"),
 
       // type, name, forValueID
-      app.createInput('text', defaultPageFont + 'font-family', defaultPageFont + 'font-family')
+      app.createInput('text', defaultPageFont + 'fontFamily', defaultPageFont + 'fontFamily')
     );
   defaultPageTable.appendChild(defaultPageFamily);
 
+/*
+  // does not make sense to set all fonts for all pages
   // select default section block size
   var defaultPageSize = app.createTableRow(
     // forValueID, innerText, parent
-    app.createLabel(defaultPageFont + 'font-size', "Page font size, enter number starting from 0.1 (if no value is entered, the default is current view on the web)"),
+    app.createLabel(defaultPageFont + 'fontSize', "Page font size, enter number starting from 0.1 (if no value is entered, the default is current view on the web)"),
 
     // type, name, forValueID
-    app.createInput('text', defaultPageFont + 'font-size', defaultPageFont + 'font-size')
+    app.createInput('text', defaultPageFont + 'fontSize', defaultPageFont + 'fontSize')
   );
   defaultPageTable.appendChild(defaultPageSize);
+*/
 
   // select default section block color
   var defaultPageColor = app.createTableRow(
@@ -183,9 +189,6 @@ app.createSettingsHTML = function () {
   fieldset.appendChild(defaultPageFontHeader);
   fieldset.appendChild(defaultPageTable);
 
-  /*---------------------------------------------------------------------------
-    HOMEPAGE font options
-  ---------------------------------------------------------------------------*/
 
   /*---------------------------------------------------------------------------
     ABOUT US PAGE font options
@@ -206,5 +209,6 @@ app.createSettingsHTML = function () {
 
 $(function () {
   document.body.appendChild(app.createSettingsHTML());
+  app.jsonInit();
 });
 
