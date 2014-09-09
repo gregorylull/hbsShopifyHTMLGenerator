@@ -1,82 +1,63 @@
 /*
 
-  LEFT COLUMN FRAME
-    - the individual products page will inherit this frame's settings
-    - HBS SA Blurb Header
-    - HBS SA Blurb text
-    - Collections Menu Header
-    - Collections Menu items
+  PRODUCT
+    - product name
+    - product vendor
+    - price
+    - price comparison
+    - add to cart
 
-  GRID
-   - Grid Collection Header
-   - Grid current collection
-   - Product name
-   - Product price
+  TAB
+    - tab header
+    - tab info
 */
 
 var app = window.myApp;
 
 app.createSettingsHTML = function () {
   var fieldset = document.createElement('fieldset');
-  fieldset.appendChild(app.createLegend("Products / Collections Page Typography"));
-  app.createSmall("The individual products page (/products/*item) will inherit the Left Frame font settings through here", fieldset);
+  fieldset.appendChild(app.createLegend("Product Purchase Page - Typography"));
+  app.createSmall("This page's Left Frame font styling inherits from the settings in 'Products / Collections Typography'", fieldset);
   var sectionArray = [];
 
   /*---------------------------------------------------------------------------
-    HBS SA BLURB
+    PRODUCT INFO
   ---------------------------------------------------------------------------*/
   // tablePrefix, tableNameArray, namePrefix, nameMainArray
-  var tablePrefix = "Left Frame - HBS SA Products Blurb: ";
+  var tablePrefix = "Product Right Info: ";
   var tableName = [
-    "Header",
-    "Description"
+    "Name",
+    "Vendor",
+    "Price",
+    "Price Comparison",
+    "Add To Cart Button"
   ];
 
-  var namePrefix = "products_frame_blurb_";
+  var namePrefix = "product_info_";
   var nameMain = [
-    "header",
-    "text"
+    "name",
+    "vendor",
+    "price",
+    "price_compare",
+    "addToCart"
   ];
 
   sectionArray.push(app.createOptionsObj(tablePrefix, tableName, namePrefix, nameMain));
 
   /*---------------------------------------------------------------------------
-    COLLECTIONS VERTICAL MENU
+    TAB INFO
   ---------------------------------------------------------------------------*/
   // tablePrefix, tableNameArray, namePrefix, nameMainArray
-  var tablePrefix = "Left Frame - Collections Menu: ";
+  var tablePrefix = "Product Tab: ";
   var tableName = [
     "Header",
-    "Menu Items"
+    "Content"
   ];
 
-  var namePrefix = "products_frame_menu_";
+  var namePrefix = "product_tab_";
   var nameMain = [
     "header",
-    "item",
-  ];
-  sectionArray.push(app.createOptionsObj(tablePrefix, tableName, namePrefix, nameMain));
-
-  /*---------------------------------------------------------------------------
-    PRODUCTS GRID
-  ---------------------------------------------------------------------------*/
-  // tablePrefix, tableNameArray, namePrefix, nameMainArray
-  var tablePrefix = "Products Grid: ";
-  var tableName = [
-    "Header",
-    "Header - Currently Displayed",
-    "Product Name",
-    "Product Price",
-    "Product Price Comparison"
-  ];
-
-  var namePrefix = "products_grid_";
-  var nameMain = [
-    "header",
-    "header_current",
-    "product_name",
-    "product_price",
-    "product_price_compare"
+    "text",
   ];
   sectionArray.push(app.createOptionsObj(tablePrefix, tableName, namePrefix, nameMain));
 
