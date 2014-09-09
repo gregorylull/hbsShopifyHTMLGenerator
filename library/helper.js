@@ -7,13 +7,13 @@ var app = myApp;
 
 // read in previous json object to populate fields if there exists one
 // input, textarea, select --> value, attr selected="selected"
-app.populateWithJSON = function (json) {
+app.populateWithJSON = function (json, check) {
   if (typeof json === 'string') { json = JSON.parse(json); }
   var inputs = $('input');
   var textarea = $('textarea');
   var select = $('select');
 
-  var data = json._data;
+  var data = !check ? json._data : json._settings;
 
   // populate data and add event listener for input tag: text and checkboxes
   inputs.length > 0 ? app.inputText(inputs, json, data) : "";
@@ -65,7 +65,6 @@ app.inputTextarea = function (textarea, json, data) {
 };
 
 app.inputSelect = function (select, json, data) {
-  console.log(json, data);
   select.each(function (index) {
     var name = $(this).attr('name');
     var jsonValue = data[name] !== undefined ? data[name] : undefined;
@@ -113,9 +112,9 @@ app.jsonConverter = function () {
   }).appendTo($('#control-panel'));
 }
 
-app.jsonInit = function (json) {
+app.jsonInit = function (json, check) {
   json = json || myApp.currentJSON;
-  var newJson = app.populateWithJSON(json);
+  var newJson = app.populateWithJSON(json, check);
   app.controlPanel();
   app.showJSON(newJson);
   app.jsonConverter();
@@ -276,12 +275,12 @@ app.createFileUpload = function (name, forValueID, maxWidth, maxHeight) {
   return fileInput;
 };
 
-app.createSelectDropdown = function (name, forValueID, optionsArray) {
+app.createSelectDropdown = function (name, forValueID, optionsArray, attr) {
   var select = $('<select></select>').attr({name: name, id: forValueID});
+  if (attr) { select.attr(attr); }
   for (var i = 0; i < optionsArray.length; i++) {
     app.createOption(null, optionsArray[i]).appendTo(select);
   }
-  console.log('this is select: ', select);
   return select[0];
 };
 

@@ -61,7 +61,7 @@ app.createSettingsHTML = function () {
 	var base = 'aboutus_execprofile_';
 	var fieldset = document.createElement('fieldset');
 	fieldset.appendChild(app.createLegend('About Us: Executive Team Profiles'));
-  
+/*  
   // input field for organizing about us layout
   fieldset.appendChild(app.createHeader('Exec Team Profile Layout'));
   var layoutTable = app.createTable();
@@ -80,7 +80,7 @@ app.createSettingsHTML = function () {
       app.createInput('checkbox', base + 'display_alphabetical', base + 'display_alphabetical')       // type, name, forValueID
     );
   layoutTable.appendChild(orderAlpha);
-	
+*/
   // input fields for exec team members
 	for (var i = 0; i < maxMembers; i++) {
 		// creating DOM elements
@@ -129,6 +129,15 @@ app.createSettingsHTML = function () {
 			);
 		table.appendChild(profilePicture);
 
+    // Profile picture URL
+    var profilePictureURL = app.createTableRow(
+        app.createLabel(string + 'picture_link', "If there isn't a local file, input a url (url MUST start with //www. and NOT http://www): "),
+        // name, forvalueid, maxwidth, maxheight
+        app.createInput('text', string + 'picture_link', string + 'picture_link')
+
+      );
+    table.appendChild(profilePictureURL);
+    app.createSmall('note: the picture URL will take precedence over the local file', table);
 		// Member email
 		var memberEmail = app.createTableRow(
 			  app.createLabel(string + 'email_input', 'Email: '),
@@ -153,4 +162,4 @@ app.createSettingsHTML = function () {
 app.createSettingsHTML();
 
 // create a json file
-app.jsonInit(app.currentJSON);
+app.jsonInit(app.currentJSON, true);

@@ -1,4 +1,4 @@
-window.myApp.currentJSON = JSON.stringify(
+window.myApp.currentJSON = JSON.stringify( 
 {
   "_settings": {
     
@@ -70,6 +70,19 @@ window.myApp.currentJSON = JSON.stringify(
     "eventspage_11_cohort": "EC",
     "eventspage_11_title": "Commencement",
     "eventspage_11_date": "5/28/2015",
-    "eventspage_11_location": "HBS"
+    "eventspage_11_location": "HBS",
+    "eventspage_0_picture_link": "//cdn.shopify.com/s/files/1/0554/7965/files/pictureComingSoon.gif?696",
+    "eventspage_1_picture_link": "//cdn.shopify.com/s/files/1/0554/7965/files/pictureComingSoon.gif?696",
+    "eventspage_2_picture_link": "//cdn.shopify.com/s/files/1/0554/7965/files/pictureComingSoon.gif?696",
+    "eventspage_3_picture_link": "//cdn.shopify.com/s/files/1/0554/7965/files/pictureComingSoon.gif?696",
+    "eventspage_4_picture_link": "//cdn.shopify.com/s/files/1/0554/7965/files/pictureComingSoon.gif?696",
+    "eventspage_5_picture_link": "//cdn.shopify.com/s/files/1/0554/7965/files/pictureComingSoon.gif?696",
+    "eventspage_6_picture_link": "//cdn.shopify.com/s/files/1/0554/7965/files/pictureComingSoon.gif?696",
+    "eventspage_7_picture_link": "//cdn.shopify.com/s/files/1/0554/7965/files/pictureComingSoon.gif?696",
+    "eventspage_8_picture_link": "//cdn.shopify.com/s/files/1/0554/7965/files/pictureComingSoon.gif?696",
+    "eventspage_9_picture_link": "//cdn.shopify.com/s/files/1/0554/7965/files/pictureComingSoon.gif?696",
+    "eventspage_10_picture_link": "//cdn.shopify.com/s/files/1/0554/7965/files/pictureComingSoon.gif?696",
+    "eventspage_11_picture_link": "//cdn.shopify.com/s/files/1/0554/7965/files/pictureComingSoon.gif?696"
   }
+}
 );

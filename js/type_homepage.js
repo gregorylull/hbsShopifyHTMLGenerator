@@ -58,81 +58,95 @@ app.createOptionsObj = function (tablePrefix, tableNameArray, namePrefix, nameMa
 app.createSettingsHTML = function () {
   var fieldset = document.createElement('fieldset');
   fieldset.appendChild(app.createLegend('Homepage Typography Options'));
-  app.createSmall("Font sizes are in percentages, 1 is the same as 100% which defaults to 16px, 2.5 is 250% of 16px, so 40px. Also note, most of the values entered below are optional, there are default sizes, colors, and styles for all fonts, so you do not HAVE to enter a value.", fieldset);
+  app.createSmall("Font sizes are in percentages, 1em is the same as 100% which defaults to 16px, 2.5em is 250% of 16px, so 40px. Also note, most of the values entered below are optional, there are default sizes, colors, and styles for all fonts, so you do not HAVE to enter a value.", fieldset);
 
   var sectionArray = [];
 
   /*---------------------------------------------------------------------------
+    Slideshow
+  ---------------------------------------------------------------------------*/
+  var tablePrefix = "Carousel / Slideshow: ";
+  var tableName = [
+    "Caption Header",
+    "Caption",
+  ];
+
+  var namePrefix = "type_homepage_slideshow_";
+  var nameMain = [
+    "header",
+    "text",
+  ];
+
+  sectionArray.push(app.createOptionsObj(tablePrefix, tableName, namePrefix, nameMain));
+
+  /*---------------------------------------------------------------------------
     Upcoming Events 
   ---------------------------------------------------------------------------*/
-     // overall, event name, event date, event location, event description
-    var tablePrefix = "Upcoming Events: ";
-    var tableName = [
-      "Section Header",
-      "Event Title",
-      "Event Date",
-      "Event Location",
-      "Event Description"
-    ];
+  // overall, event name, event date, event location, event description
+  var tablePrefix = "Upcoming Events: ";
+  var tableName = [
+    "Section Header",
+    "Event Title",
+    "Event Date",
+    "Event Location",
+    "Event Description"
+  ];
 
-    var namePrefix = "type_homepage_upcomingEvents_";
-    var nameMain = [
-      "header",
-      "title",
-      "date",
-      "location",
-      "description"
-    ];
+  var namePrefix = "type_homepage_upcomingEvents_";
+  var nameMain = [
+    "header",
+    "title",
+    "date",
+    "location",
+    "description"
+  ];
 
   sectionArray.push(app.createOptionsObj(tablePrefix, tableName, namePrefix, nameMain));
 
   /*---------------------------------------------------------------------------
     Featured Products 
   ---------------------------------------------------------------------------*/
-     // overall, event name, event date, event location, event description
-    var tablePrefix = "Featured Products: ";
-    var tableName = [
-      "Section Header",
-      "Item Name"
-    ];
+  var tablePrefix = "Featured Products: ";
+  var tableName = [
+    "Section Header",
+    "Item Name"
+  ];
 
-    var namePrefix = "type_homepage_featuredProducts_";
-    var nameMain = [
-      "header",
-      "title",
-    ];
+  var namePrefix = "type_homepage_featuredProducts_";
+  var nameMain = [
+    "header",
+    "title",
+  ];
 
   sectionArray.push(app.createOptionsObj(tablePrefix, tableName, namePrefix, nameMain));
 
   /*---------------------------------------------------------------------------
     Contact Us 
   ---------------------------------------------------------------------------*/
-     // overall, event name, event date, event location, event description
-    var tablePrefix = "Contact Us: ";
-    var tableName = [
-      "Section Header",
-    ];
+  var tablePrefix = "Contact Us: ";
+  var tableName = [
+    "Section Header",
+  ];
 
-    var namePrefix = "type_homepage_contactUs_";
-    var nameMain = [
-      "header",
-    ];
+  var namePrefix = "type_homepage_contactUs_";
+  var nameMain = [
+    "header",
+  ];
 
   sectionArray.push(app.createOptionsObj(tablePrefix, tableName, namePrefix, nameMain));
 
   /*---------------------------------------------------------------------------
     Pulse Feature 
   ---------------------------------------------------------------------------*/
-     // overall, event name, event date, event location, event description
-    var tablePrefix = "Pulse Feature: ";
-    var tableName = [
-      "Section Header",
-    ];
+  var tablePrefix = "Pulse Feature: ";
+  var tableName = [
+    "Section Header",
+  ];
 
-    var namePrefix = "type_homepage_pulseFeature_";
-    var nameMain = [
-      "header",
-    ];
+  var namePrefix = "type_homepage_pulseFeature_";
+  var nameMain = [
+    "header",
+  ];
 
   sectionArray.push(app.createOptionsObj(tablePrefix, tableName, namePrefix, nameMain));
 
@@ -140,7 +154,6 @@ app.createSettingsHTML = function () {
     HTML GENERATOR
       family
       size
-
   ---------------------------------------------------------------------------*/
 
   for (var i = 0; i < sectionArray.length; i++) {
@@ -171,12 +184,13 @@ app.createSettingsHTML = function () {
       // select default Upcoming events overall section header size
       var fontSize = app.createTableRow(
         // forValueID, innerText, parent
-        app.createLabel(defaultSecBase + 'fontSize', label + " font size, enter number starting from 0.1 (if no value is entered, the default is current view on the web)"),
+        app.createLabel(defaultSecBase + 'fontSize', label + " font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)"),
 
         // type, name, forValueID
         app.createInput('text', defaultSecBase + 'fontSize', defaultSecBase + 'fontSize')
       );
       table.appendChild(fontSize);
+      app.createSmall("The unit 'em' is responsive for mobile and desktop. So input your font-sizes as 1em, 2.2em, etc.")
 
       // select default Upcoming events overall section header color
       var fontColor = app.createTableRow(
@@ -194,8 +208,8 @@ app.createSettingsHTML = function () {
           app.createLabel(defaultSecBase + 'weight', label + " weight (defaults to normal or 400 if not specified) "),
           app.createInput('text', defaultSecBase + 'weight', defaultSecBase + 'weight')
         );
-      var small = app.createSmall("Using 'Lato' family as an example, options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)", table);
       table.appendChild(fontWeight);
+      var small = app.createSmall("Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)", table);
 
       // select font-style (text input: italicized, oblique)
       // DEFAULT is normal
@@ -203,8 +217,8 @@ app.createSettingsHTML = function () {
           app.createLabel(defaultSecBase + 'style', label + " style (defaults to normal if not specified) "),
           app.createInput('text', defaultSecBase + 'style', defaultSecBase + 'style')
         );
-      var small = app.createSmall("Using 'Lato' family as an example, potential options are: italic or oblique ", table);
       table.appendChild(fontStyle);
+      var small = app.createSmall("Using 'Lato' family as an example, style options are: italic or oblique ", table);
 
       // APPEND Upcoming events overall section header TO FIELDSET
       fieldset.appendChild(sectionHeader);

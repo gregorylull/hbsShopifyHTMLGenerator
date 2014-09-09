@@ -139,6 +139,15 @@ app.createSettingsHTML = function () {
 			);
 		table.appendChild(eventPicture);
 
+    // Event picture URL
+    var eventPictureURL = app.createTableRow(
+        app.createLabel(string + 'picture_upload', 'Event picture URL if there is no local file (URL MUST begin with //www and not http:// ): '),
+        // name, forvalueid, maxwidth, maxheight
+        app.createInput('text', string + 'picture_link', string + 'picture_link')
+      );
+    table.appendChild(eventPictureURL);
+    app.createSmall("A url link will take precedence over a local file", table);
+
 		// Live RSVP link
 		var eventRSVP = app.createTableRow(
 			  app.createLabel(string + 'rsvp_input', 'Event RSVP link: '),
@@ -158,10 +167,12 @@ app.createSettingsHTML = function () {
 		fieldset.appendChild(table);
 
 	}
-	document.body.appendChild(fieldset);
+  return fieldset;
 };
 
-app.createSettingsHTML();
+$(function () {
+  document.body.appendChild(app.createSettingsHTML());
+  // populate fields with data
+  app.jsonInit();
+});
 
-// populate fields with data
-app.jsonInit();

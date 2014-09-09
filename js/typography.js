@@ -105,9 +105,8 @@ app.createSettingsHTML = function () {
       app.createLabel(defaultSecBase + 'weight', "Section header weight (defaults to normal or 400 if not specified) "),
       app.createInput('text', defaultSecBase + 'weight', defaultSecBase + 'weight')
     );
-  var small = app.createSmall("Using 'Lato' family as an example, options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on). Also note that not all families have options, check google fonts.");
   defaultHeaderTable.appendChild(sectionHeaderWeight);
-  defaultHeaderTable.appendChild(small);
+  var small = app.createSmall("Using 'Lato' family as an example, options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on). Also note that not all families have options, check google fonts.", defaultHeaderTable);
 
   // select font-style (text input: italicized, oblique)
   // DEFAULT is normal
@@ -115,9 +114,8 @@ app.createSettingsHTML = function () {
       app.createLabel(defaultSecBase + 'style', "Section header style (defaults to normal if not specified) "),
       app.createInput('text', defaultSecBase + 'style', defaultSecBase + 'style')
     );
-  var small = app.createSmall("Using 'Lato' family as an example, options are: italic. Also note that not all families have the italic option.");
   defaultHeaderTable.appendChild(sectionHeaderStyle);
-  defaultHeaderTable.appendChild(small);
+  var small = app.createSmall("Using 'Lato' family as an example, options are: italic. Also note that not all families have the italic option.", defaultHeaderTable);
 
   // APPEND SECTION HEADER TO FIELDSET
   fieldset.appendChild(defaultSecBaseHeader);
@@ -171,9 +169,8 @@ app.createSettingsHTML = function () {
       app.createLabel(defaultPageFont + 'weight', "Page font weight (defaults to normal or 400 if not specified) "),
       app.createInput('text', defaultPageFont + 'weight', defaultPageFont + 'weight')
     );
-  var small = app.createSmall("Using 'Lato' family as an example, options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on). Also note that not all families have options, check google fonts.");
   defaultPageTable.appendChild(defaultPageWeight);
-  defaultPageTable.appendChild(small);
+  var small = app.createSmall("Using 'Lato' family as an example, options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on). Also note that not all families have options, check google fonts.", defaultPageTable);
 
   // select font-style (text input: italicized, oblique)
   // DEFAULT is normal
@@ -181,9 +178,8 @@ app.createSettingsHTML = function () {
       app.createLabel(defaultPageFont + 'style', "Page font style (defaults to normal if not specified) "),
       app.createInput('text', defaultPageFont + 'style', defaultPageFont + 'style')
     );
-  var small = app.createSmall("Using 'Lato' family as an example, options are: italic. Also note that not all families have the italic option.");
   defaultPageTable.appendChild(defaultPageStyle);
-  defaultPageTable.appendChild(small);
+  var small = app.createSmall("Using 'Lato' family as an example, options are: italic. Also note that not all families have the italic option.", defaultPageTable);
 
   // APPEND DEFAULT BODY/PAGE TO FIELDSET
   fieldset.appendChild(defaultPageFontHeader);
