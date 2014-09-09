@@ -29,7 +29,7 @@ app.createSettingsHTML = function () {
       app.createLabel(base + "logo_shield", "Logo shield, upload a file"),
 
       // name, forValueID, maxWidth, maxHeight
-      app.createFileUpload(base + "logo_shield", base + "logo_shield", 500, 500)
+      app.createFileUpload(base + "logo_shield.png", base + "logo_shield", 500, 500)
     );
   table.appendChild(logoShield);
 
@@ -47,7 +47,7 @@ app.createSettingsHTML = function () {
       app.createLabel(base + "logo_words", "Logo words, upload a file"),
 
       // name, forValueID, maxWidth, maxHeight
-      app.createFileUpload(base + "logo_words", base + "logo_words", 500, 500)
+      app.createFileUpload(base + "logo_words.png", base + "logo_words", 500, 500)
     );
   table.appendChild(logoWords);
 

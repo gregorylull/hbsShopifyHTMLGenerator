@@ -141,7 +141,7 @@ app.createSettingsHTML = function () {
 
     // Event picture URL
     var eventPictureURL = app.createTableRow(
-        app.createLabel(string + 'picture_upload', 'Event picture URL if there is no local file (URL MUST begin with //www and not http:// ): '),
+        app.createLabel(string + 'picture_link', 'Event picture URL if there is no local file (URL MUST begin with //www and not http:// ): '),
         // name, forvalueid, maxwidth, maxheight
         app.createInput('text', string + 'picture_link', string + 'picture_link')
       );
