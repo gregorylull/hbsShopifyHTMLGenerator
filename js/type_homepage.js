@@ -34,49 +34,113 @@
 
 var app = window.myApp;
 
-
-app.createSettingsHTML = function () {
-  var fieldset = document.createElement('fieldset');
-  fieldset.appendChild(app.createLegend('Homepage Typography Options'));
-  var sectionArray = [];
-
-  /*---------------------------------------------------------------------------
-    Upcoming Events 
-  ---------------------------------------------------------------------------*/
+app.createOptionsObj = function (tablePrefix, tableNameArray, namePrefix, nameMainArray) {
   var obj = {};
 
   // overall, event name, event date, event location, event description
-  obj.tablePrefix = "Upcoming Events: ";
-  obj.tableName = [
-    "Section Header",
-    "Event Title",
-    "Event Date",
-    "Event Location",
-    "Event Description"
-  ];
+  obj.tablePrefix = tablePrefix;
+  obj.tableName = tableNameArray;
   obj.tableHeader = [];
   for (var i = 0; i < obj.tableName.length; i++) {
     obj.tableHeader.push(obj.tablePrefix + obj.tableName[i]);
   }
 
-  obj.namePrefix = "type_homepage_upcomingEvents_";
-  obj.nameMain = [
-    "header",
-    "title",
-    "date",
-    "location",
-    "description"
-  ];
+  obj.namePrefix = namePrefix;
+  obj.nameMain = nameMainArray
   obj.nameBase = [];
   for (var i = 0; i < obj.nameMain.length; i++) {
     obj.nameBase.push(obj.namePrefix + obj.nameMain[i] + "_");
   }
 
-  sectionArray.push(obj);
+  return obj;
+};
 
+app.createSettingsHTML = function () {
+  var fieldset = document.createElement('fieldset');
+  fieldset.appendChild(app.createLegend('Homepage Typography Options'));
+  app.createSmall("Font sizes are in percentages, 1 is the same as 100% which defaults to 16px, 2.5 is 250% of 16px, so 40px. Also note, most of the values entered below are optional, there are default sizes, colors, and styles for all fonts, so you do not HAVE to enter a value.", fieldset);
+
+  var sectionArray = [];
+
+  /*---------------------------------------------------------------------------
+    Upcoming Events 
+  ---------------------------------------------------------------------------*/
+     // overall, event name, event date, event location, event description
+    var tablePrefix = "Upcoming Events: ";
+    var tableName = [
+      "Section Header",
+      "Event Title",
+      "Event Date",
+      "Event Location",
+      "Event Description"
+    ];
+
+    var namePrefix = "type_homepage_upcomingEvents_";
+    var nameMain = [
+      "header",
+      "title",
+      "date",
+      "location",
+      "description"
+    ];
+
+  sectionArray.push(app.createOptionsObj(tablePrefix, tableName, namePrefix, nameMain));
+
+  /*---------------------------------------------------------------------------
+    Featured Products 
+  ---------------------------------------------------------------------------*/
+     // overall, event name, event date, event location, event description
+    var tablePrefix = "Featured Products: ";
+    var tableName = [
+      "Section Header",
+      "Item Name"
+    ];
+
+    var namePrefix = "type_homepage_featuredProducts_";
+    var nameMain = [
+      "header",
+      "title",
+    ];
+
+  sectionArray.push(app.createOptionsObj(tablePrefix, tableName, namePrefix, nameMain));
+
+  /*---------------------------------------------------------------------------
+    Contact Us 
+  ---------------------------------------------------------------------------*/
+     // overall, event name, event date, event location, event description
+    var tablePrefix = "Contact Us: ";
+    var tableName = [
+      "Section Header",
+    ];
+
+    var namePrefix = "type_homepage_contactUs_";
+    var nameMain = [
+      "header",
+    ];
+
+  sectionArray.push(app.createOptionsObj(tablePrefix, tableName, namePrefix, nameMain));
+
+  /*---------------------------------------------------------------------------
+    Pulse Feature 
+  ---------------------------------------------------------------------------*/
+     // overall, event name, event date, event location, event description
+    var tablePrefix = "Pulse Feature: ";
+    var tableName = [
+      "Section Header",
+    ];
+
+    var namePrefix = "type_homepage_pulseFeature_";
+    var nameMain = [
+      "header",
+    ];
+
+  sectionArray.push(app.createOptionsObj(tablePrefix, tableName, namePrefix, nameMain));
 
   /*---------------------------------------------------------------------------
     HTML GENERATOR
+      family
+      size
+
   ---------------------------------------------------------------------------*/
 
   for (var i = 0; i < sectionArray.length; i++) {
@@ -130,9 +194,8 @@ app.createSettingsHTML = function () {
           app.createLabel(defaultSecBase + 'weight', label + " weight (defaults to normal or 400 if not specified) "),
           app.createInput('text', defaultSecBase + 'weight', defaultSecBase + 'weight')
         );
-      var small = app.createSmall("Using 'Lato' family as an example, options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on). Also note that not all families have options, check google fonts.");
+      var small = app.createSmall("Using 'Lato' family as an example, options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)", table);
       table.appendChild(fontWeight);
-      table.appendChild(small);
 
       // select font-style (text input: italicized, oblique)
       // DEFAULT is normal
@@ -140,9 +203,8 @@ app.createSettingsHTML = function () {
           app.createLabel(defaultSecBase + 'style', label + " style (defaults to normal if not specified) "),
           app.createInput('text', defaultSecBase + 'style', defaultSecBase + 'style')
         );
-      var small = app.createSmall("Using 'Lato' family as an example, options are: italic. Also note that not all families have the italic option.");
+      var small = app.createSmall("Using 'Lato' family as an example, potential options are: italic or oblique ", table);
       table.appendChild(fontStyle);
-      table.appendChild(small);
 
       // APPEND Upcoming events overall section header TO FIELDSET
       fieldset.appendChild(sectionHeader);
