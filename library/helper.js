@@ -105,19 +105,38 @@ app.showJSON = function (json) {
   });
 };
 
-app.jsonConverter = function () {
+app.jsonFormatter = function () {
   $('<div><a href="http://jsonviewer.stack.hu/" target="_blank"> json format</a> </div>').css({
     display: 'inline-block',
-    border: "1px dotted blue"
+    border: "1px dotted blue",
+    margin: "0px 5px"
   }).appendTo($('#control-panel'));
 }
+
+app.xhtmlConverter = function () {
+  $('<div><a href="http://www.csgnetwork.com/cvthtml2xhtml.html" target="_blank"> html TO xhtml</a> </div>').css({
+    display: 'inline-block',
+    border: "1px dotted blue",
+    margin: "0px 5px"
+  }).appendTo($('#control-panel'));
+};
+
+app.xhtmlFormatter = function () {
+  $('<div><a href="http://www.freeformatter.com/html-formatter.html" target="_blank"> json format</a> </div>').css({
+    display: 'inline-block',
+    border: "1px dotted blue",
+    margin: "0px 5px"
+  }).appendTo($('#control-panel'));
+};
 
 app.jsonInit = function (json, check) {
   json = json || myApp.currentJSON;
   var newJson = app.populateWithJSON(json, check);
   app.controlPanel();
   app.showJSON(newJson);
-  app.jsonConverter();
+  app.jsonFormatter();
+  app.xhtmlConverter();
+  app.xhtmlFormatter();
 };
 
 
