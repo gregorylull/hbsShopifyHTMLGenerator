@@ -324,7 +324,7 @@ app.createOption = function (parent, attrObject) {
   TYPOGRAPHY
 ********************************************************************************/
 
-app.createOptionsObj = function (tablePrefix, tableNameArray, namePrefix, nameMainArray) {
+app.createOptionsObj = function (tablePrefix, tableNameArray, namePrefix, nameMainArray, options) {
   var obj = {};
 
   // overall, event name, event date, event location, event description
