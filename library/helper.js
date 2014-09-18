@@ -139,20 +139,38 @@ app.jsonInit = function (json, check) {
   app.xhtmlFormatter();
 };
 
+/******************************************************************************
+  KEY
+******************************************************************************/
+app.key = {
+  'label': 'createLabel',
+  'input': 'createInput',
+  'row': 'createTableRow',
+  'legend': 'createLegend',
+  'header': 'createHeader',
+  'small': 'createSmall',
+  'textarea': 'createTextArea',
+  'upload' : 'createFileUpload'
+};
+
 
 /******************************************************************************
   LEGEND AND SMALL
 ******************************************************************************/
 
-app.createLegend = function (name) {
+app.createLegend = function (name, parent) {
   var legend = document.createElement('legend');
   legend.innerText = name;
+  if (parent) { parent.appendChild(legend); }
   return legend;
 };
 
-app.createHeader = function (name) {
+app.createHeader = function (name, parent) {
   var header = document.createElement('h3');
   header.innerText = name;
+  if (parent) {
+    parent.appendChild(header);
+  }
   return header;
 };
 
@@ -209,14 +227,18 @@ app.createTableData = function (child) {
 app.createTableRow = function () {
   var row = document.createElement('tr');
   if (arguments.length > 0) {
-    for (var i = 0; i < arguments.length; i++) {
+    var last = arguments[arguments.length-1].nodeName.toLowerCase(); // element type
+    // if the last element is a table, that means it is a parent most likely, so we can append to it
+    var length = last === 'table' || last === 'fieldset' ? arguments.length - 1 : arguments.length;
+    for (var i = 0; i < length; i++) {
       var cellData = arguments[i];
       row.appendChild(app.createTableData(cellData));
     }
-    return row;
-  } else {
-    return row;
+    if (last === 'table' || last === 'fieldset') {
+      arguments[arguments.length-1].appendChild(row);
+    }
   }
+  return row;
 };
 
 app.createTableHeader = function (child) {
@@ -234,20 +256,35 @@ app.createTableHeader = function (child) {
 ********************************************************************************/
 
 app.createLabel = function (forValueID, innerText, parent) {
+  if (typeof arguments[0] === 'object') {
+    var config = arguments[0];
+    forValueID = config.id;
+    innerText = config.text;
+    parent = config.parent;
+  }
   forValueID = forValueID || '';
 
   var label = document.createElement('label');
   label.setAttribute('for', forValueID);
   label.innerText = innerText;
+  
   if (parent) {
     parent.appendChild(label);
-    return label;
-  } else {
-    return label;
   }
+
+  return label;
 };
 
-app.createInput = function (type, name, forValueID, special) {
+app.createInput = function (type, name, forValueID, special, parent) {
+  if (arguments[0] === 'object') {
+    var config = arguments[0];
+    type = config.type;
+    name = config.id;
+    forValueID = config.id;
+    special = config.attr;
+    parent = config.parent;
+  }
+
   var input = document.createElement('input');
   input.setAttribute('type', type);
   input.setAttribute('name', name);
@@ -263,10 +300,24 @@ app.createInput = function (type, name, forValueID, special) {
     input.setAttribute('value', '1');
   }
 
+  if (parent) {
+    parent.appendChild(input);
+  }
+
   return input;
 };
 
-app.createTextArea = function (name, forValueID, cols, rows, value) {
+app.createTextArea = function (name, forValueID, cols, rows, value, parent) {
+  if (typeof arguments[0] === 'object') {
+    var config = arguments[0];
+    name = config.id;
+    forValueID = config.id;
+    cols = config.col;
+    rows = config.rows;
+    value = config.value;
+    parent = config.parent;
+  }
+
   cols = cols | "55";
   rows = rows | "6";
   value = value | '';
@@ -278,10 +329,23 @@ app.createTextArea = function (name, forValueID, cols, rows, value) {
   textArea.setAttribute('value', value);
   textArea.id = forValueID;
 
+  if (parent) {
+    parent.appendChild(textArea);
+  }
+
   return textArea;
 };
 
-app.createFileUpload = function (name, forValueID, maxWidth, maxHeight) {
+app.createFileUpload = function (name, forValueID, maxWidth, maxHeight, parent) {
+  if (typeof arguments[0] === 'object') {
+    var config = arguments[0];
+    name = config.id;
+    forValueID = config.id;
+    maxWidth = config.width;
+    maxHeight = config.height;
+    parent = config.parent;
+  }
+
   maxWidth = maxWidth || 2000;
   maxHeight = maxHeight || 2000;
   var fileInput = document.createElement('input');
@@ -291,15 +355,33 @@ app.createFileUpload = function (name, forValueID, maxWidth, maxHeight) {
   fileInput.setAttribute('data-max-width', maxWidth);
   fileInput.setAttribute('data-max-height', maxHeight);
 
+  if (parent) {
+    parent.appendChild(fileInput);
+  }
+
   return fileInput;
 };
 
-app.createSelectDropdown = function (name, forValueID, optionsArray, attr) {
+app.createSelectDropdown = function (name, forValueID, optionsArray, attr, parent) {
+  if (typeof arguments[0] === 'object') {
+    var config = arguments[0];
+    name = config.id;
+    forValueID = config.id;
+    optionsArray = config.options;
+    attr = config.attr;
+    parent = config.parent;
+  }
+
   var select = $('<select></select>').attr({name: name, id: forValueID});
   if (attr) { select.attr(attr); }
   for (var i = 0; i < optionsArray.length; i++) {
     app.createOption(null, optionsArray[i]).appendTo(select);
   }
+
+  if (parent) {
+    parent.appendChild(select[0]);
+  }
+
   return select[0];
 };
 
