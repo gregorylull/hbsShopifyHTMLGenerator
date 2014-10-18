@@ -80,6 +80,14 @@ app.createSettingsHTML = function () {
 			);
 		table.appendChild(displayEventCheckbox);
 
+    // Display on front page (upcoming events)
+    var displayOnFP = app.createTableRow(
+      app.createLabel(string + "display_frontpage", "Display on homepage under 'Upcoming Event'?"),
+      app.createInput('checkbox', string + "display_frontpage", string + "display_checkbox")
+    );
+
+    table.appendChild(displayOnFP);
+
     // Event cohort select
     var cohortOptions = [
       {text: 'RC', value: 'RC'},
@@ -141,7 +149,7 @@ app.createSettingsHTML = function () {
 
     // Event picture URL
     var eventPictureURL = app.createTableRow(
-        app.createLabel(string + 'picture_link', 'Event picture URL if there is no local file (URL MUST begin with //www and not http:// ): '),
+        app.createLabel(string + 'picture_link', 'Event picture URL if there is no local file (URL MUST begin with // or http:// or https:// ): '),
         // name, forvalueid, maxwidth, maxheight
         app.createInput('text', string + 'picture_link', string + 'picture_link')
       );

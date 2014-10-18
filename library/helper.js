@@ -216,8 +216,14 @@ app.createTable = function(parent, child) {
 // takes an element, like <input> or <label> and wraps it with <td></td>
 app.createTableData = function (child) {
   var tableData = document.createElement('td');
+  var el = child;
+  if (typeof child === "string" || typeof child === "number") {
+    el = document.createElement('span');
+    el.innerText = child;
+  }
+
   if (child) {
-    tableData.appendChild(child);
+    tableData.appendChild(el);
     return tableData;
   }
   return tableData;
@@ -276,7 +282,7 @@ app.createLabel = function (forValueID, innerText, parent) {
 };
 
 app.createInput = function (type, name, forValueID, special, parent) {
-  if (arguments[0] === 'object') {
+  if (typeof arguments[0] === 'object') {
     var config = arguments[0];
     type = config.type;
     name = config.id;

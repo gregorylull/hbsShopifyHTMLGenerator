@@ -10,6 +10,8 @@ Level 1 (color)
 
 Level 6 (lowest on the webpage): Gold
 
+
+
 Typography fontOptions
   Page Header
   Page Blurb
@@ -104,6 +106,15 @@ app.createSettingsHTML = function () {
   }
 
   // SPONSORS
+  /*
+    sponsor_i_
+      name
+      level
+      events
+      blurb
+      logo
+      logo_link
+  */
   app.createHeader("Individual Sponsor Information", fieldset);
   app.createTableRow(app.createSmall("For sponsorship levels, please enter text EXACTLY the same as above, i.e. if a sponorship level is captialized above or with different punctuations, then enter the same below!"), fieldset);
   app.createTableRow(app.createSmall(" Please start image URLs with '//www.' , 'http://www.' , or 'https://www.'"), fieldset);
@@ -138,6 +149,23 @@ app.createSettingsHTML = function () {
       table
     );
 
+    // Sponsor level
+    var label = {
+      id: base + 'level',
+      text: "Sponsorship level"
+    };
+
+    var input = {
+      id: base + 'level',
+      type: 'text'
+    };
+
+    app.createTableRow(
+      app.createLabel(label),
+      app.createInput(input),
+      table
+    );
+
     // Sponsor events
     var label = {
       id: base + "events",
@@ -155,22 +183,6 @@ app.createSettingsHTML = function () {
       table
     );
 
-    // Sponsor level
-    var label = {
-      id: base + 'level',
-      text: "Sponsorship level"
-    };
-
-    var input = {
-      id: base + 'level',
-      type: 'text'
-    };
-
-    app.createTableRow(
-      app.createLabel(label),
-      app.createInput(input),
-      table
-    );
 
     // Sponsor blurb
     var label = {

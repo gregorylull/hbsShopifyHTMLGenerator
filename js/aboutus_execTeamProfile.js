@@ -61,16 +61,18 @@ app.createSettingsHTML = function () {
 	var base = 'aboutus_execprofile_';
 	var fieldset = document.createElement('fieldset');
 	fieldset.appendChild(app.createLegend('About Us: Executive Team Profiles'));
-/*  
+  
   // input field for organizing about us layout
   fieldset.appendChild(app.createHeader('Exec Team Profile Layout'));
   var layoutTable = app.createTable();
-  var profileLayout = app.createTableRow(
-  	  app.createLabel(base + 'row_sequence', 'Specifiy how many profiles per row (comma separated). If empty, the default* will be used.'),
-  	  app.createInput('text', base + 'row_sequence', base + 'row_sequence')
-  	);
-  layoutTable.appendChild(profileLayout);
   fieldset.appendChild(layoutTable);
+
+  // sequence / max per row
+  var profileLayout = app.createTableRow(
+      app.createLabel(base + 'row_sequence', 'Specifiy how many profiles per row (comma separated). If empty, the default* will be used.'),
+      app.createInput('text', base + 'row_sequence', base + 'row_sequence')
+    );
+  layoutTable.appendChild(profileLayout);
   app.createSmall('*default layout for 2 co-presidents and 11 other members is: 2,4,3,4', layoutTable);
 
   // checkbox option for ordering alphabetically or according to the ordering below
@@ -80,7 +82,8 @@ app.createSettingsHTML = function () {
       app.createInput('checkbox', base + 'display_alphabetical', base + 'display_alphabetical')       // type, name, forValueID
     );
   layoutTable.appendChild(orderAlpha);
-*/
+  app.createSmall("Top row is NOT affected by alphabetical sorting. It is the executive level and order could be important, so the user must make sure the order listed below is in the correct order", layoutTable);
+
   // input fields for exec team members
 	for (var i = 0; i < maxMembers; i++) {
 		// creating DOM elements
