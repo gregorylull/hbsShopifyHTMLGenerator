@@ -98,7 +98,7 @@ app.createSettingsHTML = function () {
 
     var eventCohortSelect = app.createTableRow(
         app.createLabel(string + 'cohort_select', 'Select class year'),
-        app.createSelectDropdown(string + 'cohort', string + 'corhort_select', cohortOptions) // name, forValueID, optionsArray
+        app.createSelectDropdown(string + 'cohort', string + 'cohort_select', cohortOptions) // name, forValueID, optionsArray
       );
     table.appendChild(eventCohortSelect);
 

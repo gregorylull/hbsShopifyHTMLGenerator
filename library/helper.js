@@ -7,13 +7,13 @@ var app = myApp;
 
 // read in previous json object to populate fields if there exists one
 // input, textarea, select --> value, attr selected="selected"
-app.populateWithJSON = function (json, check) {
+app.populateWithJSON = function (json, useSettings) {
   if (typeof json === 'string') { json = JSON.parse(json); }
   var inputs = $('input');
   var textarea = $('textarea');
   var select = $('select');
 
-  var data = !check ? json._data : json._settings;
+  var data = useSettings ? json._settings : json._data;
 
   // populate data and add event listener for input tag: text and checkboxes
   inputs.length > 0 ? app.inputText(inputs, json, data) : "";
