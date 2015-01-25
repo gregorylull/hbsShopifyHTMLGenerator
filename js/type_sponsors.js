@@ -1,63 +1,59 @@
-/*
-
-  PRODUCT
-    - product name
-    - product vendor
-    - price
-    - price comparison
-    - add to cart
-
-  TAB
-    - tab header
-    - tab info
-*/
-
 var app = window.myApp;
 
 app.createSettingsHTML = function () {
   var fieldset = document.createElement('fieldset');
-  fieldset.appendChild(app.createLegend("Product Purchase Page - Typography"));
-  app.createSmall("This page's Left Frame font styling inherits from the settings in 'Products / Collections Typography'", fieldset);
+  fieldset.appendChild(app.createLegend("Sponsors Page - Typography"));
+  app.createSmall("", fieldset);
   var sectionArray = [];
+  var tablePrefix, tableName, namePrefix, nameMain;
 
   /*---------------------------------------------------------------------------
-    PRODUCT INFO
+    PAGE INFO
   ---------------------------------------------------------------------------*/
   // tablePrefix, tableNameArray, namePrefix, nameMainArray
-  var tablePrefix = "Product Right Info: ";
-  var tableName = [
-    "Name",
-    "Vendor",
-    "Price",
-    "Price Comparison",
-    "Add To Cart Button"
+  tablePrefix = "Page: ";
+  tableName = [
+    "Blurb"
   ];
 
-  var namePrefix = "product_info_";
-  var nameMain = [
-    "name",
-    "vendor",
-    "price",
-    "price_compare",
-    "addToCart"
+  namePrefix = "sponsors_page_";
+  nameMain = [
+    'blurb'
   ];
 
   sectionArray.push(app.createOptionsObj(tablePrefix, tableName, namePrefix, nameMain));
 
   /*---------------------------------------------------------------------------
-    TAB INFO
+    Sponsor Level
   ---------------------------------------------------------------------------*/
   // tablePrefix, tableNameArray, namePrefix, nameMainArray
-  var tablePrefix = "Product Tab: ";
-  var tableName = [
-    "Header",
-    "Content"
+  tablePrefix = "Level: ";
+  tableName = [
+    "Name",
+    "Description"
   ];
 
-  var namePrefix = "product_tab_";
-  var nameMain = [
-    "header",
-    "text",
+  namePrefix = "sponsors_level_";
+  nameMain = [
+    "name",
+    "description",
+  ];
+  sectionArray.push(app.createOptionsObj(tablePrefix, tableName, namePrefix, nameMain));
+
+  /*---------------------------------------------------------------------------
+    Product Variant
+  ---------------------------------------------------------------------------*/
+  // tablePrefix, tableNameArray, namePrefix, nameMainArray
+  tablePrefix = "Company: ";
+  tableName = [
+    "Name",
+    "Sponsored Events"
+  ];
+
+  namePrefix = "sponsors_company_";
+  nameMain = [
+    "name",
+    "events",
   ];
   sectionArray.push(app.createOptionsObj(tablePrefix, tableName, namePrefix, nameMain));
 

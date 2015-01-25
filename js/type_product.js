@@ -1,82 +1,98 @@
 /*
 
-  PAGE
-    - HEADER
-    - BLURB
+  PRODUCT
+    - product name
+    - product vendor
+    - price
+    - price comparison
+    - add to cart
 
-  EVENT
-    - name
-    - location
-    - description
-    - date
-    - RSVP
+  TAB
+    - tab header
+    - tab info
 */
 
 var app = window.myApp;
 
 app.createSettingsHTML = function () {
   var fieldset = document.createElement('fieldset');
-  fieldset.appendChild(app.createLegend("Events Page - Typography"));
+  fieldset.appendChild(app.createLegend("Product Purchase Page - Typography"));
+  app.createSmall("This page's Left Frame font styling inherits from the settings in 'Products / Collections Typography'", fieldset);
   var sectionArray = [];
-
   var tablePrefix, tableName, namePrefix, nameMain;
 
   /*---------------------------------------------------------------------------
-    PAGE INFO
+    PRODUCT INFO
   ---------------------------------------------------------------------------*/
   // tablePrefix, tableNameArray, namePrefix, nameMainArray
-  tablePrefix = "Page: ";
-  tableName = [
-    "Header",
-    "Blurb"
-  ];
-
-  namePrefix = "eventspage_type_page_";
-  nameMain = [
-    "title",
-    "text"
-  ];
-
-  sectionArray.push(app.createOptionsObj(tablePrefix, tableName, namePrefix, nameMain));
-
-  /*---------------------------------------------------------------------------
-    CLASS SECTION  cross-year, rc, ec,
-  ---------------------------------------------------------------------------*/
-
-  tablePrefix = "Class Section: ";
-  tableName = [
-    "Class Header",
-    "Default no upcoming events"
-  ];
-
-  namePrefix = "eventspage_type_event_section_";
-  nameMain = [
-    "header",
-    "noEvents"
-  ];
-
-  sectionArray.push(app.createOptionsObj(tablePrefix, tableName, namePrefix, nameMain));
-
-  /*---------------------------------------------------------------------------
-    EVENT INFO
-  ---------------------------------------------------------------------------*/
-  // tablePrefix, tableNameArray, namePrefix, nameMainArray
-  tablePrefix = "Event: ";
+  tablePrefix = "Product Right Info: ";
   tableName = [
     "Name",
-    "Date",
-    "Location",
-    "Description",
-    "RSVP Link"
+    "Vendor",
+    "Price",
+    "Price Comparison",
+    "Add To Cart Button"
   ];
 
-  namePrefix = "eventspage_type_event_";
+  namePrefix = "product_info_";
   nameMain = [
     "name",
-    "date",
-    "location",
+    "vendor",
+    "price",
+    "price_compare",
+    "addToCart"
+  ];
+
+  sectionArray.push(app.createOptionsObj(tablePrefix, tableName, namePrefix, nameMain));
+
+  /*---------------------------------------------------------------------------
+    EXTRA Line-item and Options
+  ---------------------------------------------------------------------------*/
+  // tablePrefix, tableNameArray, namePrefix, nameMainArray
+  tablePrefix = "Product Extras: ";
+  tableName = [
+    "User Input",
+    "Notes"
+  ];
+
+  namePrefix = "product_extras_";
+  nameMain = [
+    "input",
+    "note",
+  ];
+  sectionArray.push(app.createOptionsObj(tablePrefix, tableName, namePrefix, nameMain));
+
+  /*---------------------------------------------------------------------------
+    Product Variant
+  ---------------------------------------------------------------------------*/
+  // tablePrefix, tableNameArray, namePrefix, nameMainArray
+  tablePrefix = "Product Variant: ";
+  tableName = [
+    "Style Name",
+    "Style Options"
+  ];
+
+  namePrefix = "product_variant_";
+  nameMain = [
+    "name",
+    "options",
+  ];
+  sectionArray.push(app.createOptionsObj(tablePrefix, tableName, namePrefix, nameMain));
+
+  /*---------------------------------------------------------------------------
+    TAB INFO
+  ---------------------------------------------------------------------------*/
+  // tablePrefix, tableNameArray, namePrefix, nameMainArray
+  tablePrefix = "Product Tab: ";
+  tableName = [
+    "Header",
+    "Content"
+  ];
+
+  namePrefix = "product_tab_";
+  nameMain = [
+    "header",
     "text",
-    "rsvp"
   ];
   sectionArray.push(app.createOptionsObj(tablePrefix, tableName, namePrefix, nameMain));
 

@@ -64,7 +64,7 @@ app.createSettingsHTML = function () {
 	var fieldset = document.createElement('fieldset');
 	fieldset.appendChild(app.createLegend('Events page'));
 
-	var options = 20;
+	var options = 15;
 	for (var i = 0; i < options; i++) {
 		// creating DOM elements
 		var string = 'eventspage_' + i + '_';

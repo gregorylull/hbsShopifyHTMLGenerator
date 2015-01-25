@@ -61,6 +61,7 @@ app.createSettingsHTML = function () {
   var tableName = [
     "Category Header",
     "Category Description",
+    "Category Event List Header",
     "Category Event List"
   ];
 
@@ -68,6 +69,7 @@ app.createSettingsHTML = function () {
   var nameMain = [
     "header",
     "description",
+    "list_header",
     "list"
   ];
 
