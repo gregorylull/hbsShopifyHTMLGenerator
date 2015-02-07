@@ -4,7 +4,7 @@ window.myApp.currentJSON = JSON.stringify(
     "aboutus_execprofile_row_sequence": "2, 4, 3, 4",
     "aboutus_execprofile_0_name": "Linda Li",
     "aboutus_execprofile_0_position": "Co-President",
-    "aboutus_execprofile_0_description": "Raised under the sunny skies of California, Linda has found herself calling Boston, Shanghai, and New York home for the last 10 years. She's passionate about financial technology and politics, and is easily spotted shuttling across the Charles between HKS and HBS.",
+    "aboutus_execprofile_0_description": "Raised under the sunny skies of California, Linda has found herself calling Boston, Shanghai, and New York home for the last 10 years. After working at McKinsey and the New York City Mayor's Office, she's exploring her passions in economic development, financial technology, and urban policy at HBS and HKS just across the river. Please don't hesitate to say hi whenever you see her!",
     "aboutus_execprofile_0_display": true,
     "aboutus_execprofile_1_display": true,
     "aboutus_execprofile_1_name": "Nonso Maduka",

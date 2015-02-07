@@ -109,12 +109,19 @@ app.createSettingsHTML = function () {
 			);
 		table.appendChild(eventTitle);
 
-		// Event date
-		var eventDate = app.createTableRow(
-			  app.createLabel(string + 'date_input', 'Event date: '),
-			  app.createInput('text', string + 'date', string + 'date_input')
+		// Event START date
+		var eventStartDate = app.createTableRow(
+			  app.createLabel(string + 'start_date_input', 'Event start date (mm/dd/yyyy): '),
+			  app.createInput('text', string + 'start_date', string + 'start_date_input')
 			);
-		table.appendChild(eventDate);
+		table.appendChild(eventStartDate);
+
+    // Event END date
+    var eventEndDate = app.createTableRow(
+        app.createLabel(string + 'end_date_input', 'Event end date (mm/dd/yyyy): '),
+        app.createInput('text', string + 'end_date', string + 'end_date_input')
+      );
+    table.appendChild(eventEndDate);
 
     // Event location - text input
     var eventLocation = app.createTableRow(

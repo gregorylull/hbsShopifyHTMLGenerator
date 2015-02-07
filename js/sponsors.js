@@ -120,7 +120,7 @@ app.createSettingsHTML = function () {
   app.createTableRow(app.createSmall(" Please start image URLs with '//www.' , 'http://www.' , or 'https://www.'"), fieldset);
 
   // repeat same fields for mutliple sponsors
-  var options = 20;
+  var options = 15;
   for (var i = 0; i < options; i++) {
     var table = app.createTable(fieldset);
     var base = "sponsor_" + i + "_";
